@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ConceptExpress</title>
+  <!-- <link rel="icon" type="assets/png" href="" /> -->
+  <!-- <link rel="canonical" href="" /> -->
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-71Y5XX2NRF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-97476543-1');
+    </script>
+
+  <!-- Meta tags -->
+  <meta name="keywords" content="language models, image generation">
+  <meta property="og:site_name" content="ELM">
+  <meta property="og:url" content="">
+  <meta property="og:title" content="Elucidating the design sapce of language model for image generation">
+  <meta name="description" content="The first work comprehensively explore the design space and analyze the learning behavior of language model on image generation.">
+  <meta property="og:description" content="The first work comprehensively explore the design space and analyze the learning behavior of language model on image generation.">
+
+  <!-- <meta property="og:image" content="">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <meta property="og:image" content="">
+  <meta property="og:image:width" content="300">
+  <meta property="og:image:height" content="300"> -->
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" type="text/css" href="./static/slick/slick.css" />
+  <link rel="stylesheet" type="text/css" href="./static/slick/slick-theme.css" />
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script type="text/javascript" src="./static/slick/slick.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+  <!-- Authors, institutions and links -->
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-2 publication-title">Elucidating the design sapce of language model for image generation
+            </h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://github.com/Pepper-lll">Xuantong Liu</a>,
+              </span>
+              <span class="author-block">
+                <a href="https://haoosz.github.io/">Shaozhe Hao</a>,
+              </span>
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=odjSydQAAAAJ&hl=en">Xianbiao Qi</a>,
+              </span>
+              <span class="author-block">
+                <a href="https://hu-tianyang.github.io/">Tianyang Hu</a>,
+              </span>
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=mX8s9ZgAAAAJ">Jun Wang</a>,
+              </span>
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=Zb5wT08AAAAJ&hl=en">Rong Xiao</a>,
+              </span>
+              <span class="author-block">
+                <a href="https://yao-lab.github.io/">Yuan Yao</a>
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">The Hong Kong University of Science and Technology, </span>
+              <span class="author-block">The University of Hong Kong, </span>
+              <span class="author-block">Intellifusion, </span>
+              <span class="author-block">Huawei Noah’s Ark Lab </span>
+            </div>
+            
+            <!-- <div class="venue">
+              <strong><font size="5" color="SteelBlue">ECCV 2024 Oral</font></strong>
+            </div> -->
+
+            <!-- <div>
+              <p style="font-size:23px;font-weight:bold;padding-top: 5px;"></p>
+            </div> -->
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <span class="link-block">
+                  <a href="asset/LMforImageGeneration_arxiv.pdf" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>PDF</span>
+                  </a>
+                </span>
+
+                <!-- arXiv Link. -->
+                <!-- <span class="link-block">
+                  <a href="http://arxiv.org/abs/2407.07077" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span> -->
+
+
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href="https://github.com/Pepper-lll/LMforImageGeneration.git"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Teaser -->
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <div id="teaser" class="has-text-centered">
+          <img style="width: 100%;" src="./static/src/teaser.png" alt="ELM teaser.">
+          <!-- <video id="teaser" autoplay muted loop playsinline width="100%">
+            <source src="./static/src/teaser.mp4"
+                    type="video/mp4">
+          </video> -->
+        </div>
+
+        <!-- <video id="teaser" autoplay="" controls="" muted="" loop="" playsinline="" height="100%">
+          <source src="static/videos/SpaText_Teaser.mp4" type="video/mp4">
+        </video> -->
+
+        <!-- We focus on the
+          <i>unsupervised</i> problem of extracting <i>multiple</i> concepts from
+          a <i>single</i> image.</span> Given an image that contains multiple concepts, we aim to
+          harness a frozen pretrained diffusion model to automatically learn
+          the conceptual tokens. Using the learned conceptual tokens, we
+          can regenerate the extracted concepts with high quality. -->
+        <h2 class="subtitle has-text-centered">
+          <p>
+          <strong>Elucidated Language model for iMage generation(ELM)</strong>: <span class="highlight">
+          We focus on explore and analyze the language models potential on image generation tasks. </span>
+          We acheve state of the art image generation performance on ImageNet 256×256 via carefully explore 
+          each component of using language models on image generation, including the image tokenization choice (VQGAN or BAE), 
+          language modeling method choice (AR or MLM), vocabulary design with BAE, and sampling strategies.
+          We also analyze the difference between langague generation and vision generation within the sequential scheme.
+          </p>
+        </h2>
+      </div>
+    </div>
+  </section>
+
+  <!-- Abstract. -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              The success of autoregressive (AR) language models in text generation has inspired
+              the computer vision community to adopt Large Language Models (LLMs)
+              for image generation. However, considering the essential differences between text
+              and image modalities, the design space of language models for image generation
+              remains underexplored. We observe that image tokens exhibit greater randomness
+              compared to text tokens, which presents challenges when training with token
+              prediction. Nevertheless, AR models demonstrate their potential by effectively
+              learning patterns even from a seemingly suboptimal optimization problem. Our
+              analysis also reveals that while all models successfully grasp the importance of local 
+              information in image generation, smaller models struggle to capture the global
+              context. In contrast, larger models showcase improved capabilities in this area,
+              helping to explain the performance gains achieved when scaling up model size.
+              We further elucidate the design space of language models for vision generation,
+              including tokenizer choice, model choice, model scalability, vocabulary design,
+              and sampling strategy through extensive comparative experiments. <u class="highlight">Our work is
+              the first to analyze the optimization behavior of language models in vision
+              generation, and we believe it can inspire more effective designs when applying LMs
+              to other domains</u>. Finally, our elucidate language model for image generation,
+              termed as ELM, achieves state-of-the-art performance on the ImageNet 256×256
+              benchmark.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Paper video. -->
+  <!-- <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-12">
+          <div class="content has-text-justified">
+            <div class="columns is-centered has-text-centered">
+              <div class="column is-four-fifths">
+                <h2 class="title is-3">Video</h2>
+                <div class="publication-video">
+                  <iframe src="" frameborder="0"
+                    allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <!-- Method explanation -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-12">
+          <h2 class="title is-3">Method</h2>
+
+          <div class="content has-text-justified">
+
+            <div class="container" style="text-align: center;">
+              <img width="80%" src="./static/src/method.png"/>
+              <br />
+            </div>
+
+            <p>
+            <span class="method-name">ELM</span> utilizes a Binary Autoenceoder (BAE) and 
+            <u class="highlight">splits each binary code into two subcode</u> 
+            and <u class="highlight">ensures large randomness during inference</u>. 
+            </p>
+            
+            <p>
+            <strong>The major contributions</strong> of <span class="method-name">ELM</span>: 
+            <ul>
+            <li>
+              For the <strong>difference between image and language sequence generation</strong>, we identify the fundamental differences between the token distributions of discretized images and
+              text, finding <u class="highlight">image tokens exhibit much higher randomness</u> than language tokens, posing greater challenges to model the sequences.
+            </li>
+            <li>
+              For the <strong>image tokenizer</strong>, we examine Vector Quantization (VQ-VAE) and Binary Autoencoder (BAE). We find that
+              <u class="highlight">BAE can always achieve 100% code utilization, result in better reconstruction ability and generation performance</u>.
+              Meanwhile, binary codes also allow higher flexibility when constructing vocabulary.
+            </li> 
+            <li>
+              For the <strong>language modeling method</strong>, we thoroughly examine AutoRegressive (AR) models and Masked Language Models
+              (MLMs), within the realm of image generation. Our findings suggest that <u class="highlight">AR mechanism holds
+              greater potential in the visual domain</u>.
+            </li>
+            <li>
+              For the <strong>learning behavior</strong> of language models in image domain, we show that AR models can learn effective image patterns without inductive bias, 
+              identify <u class="highlight">distinct patterns across model sizes</u>. Specifically, all the models across different sizes effectively
+              capture the importance of local importance during image generation, while <u class="highlight">larger models also learn the global relationship</u> in some layers,
+              which offer some comsice explaination of the performanec gain for the larger models.
+            </li>
+            <li>
+              For the <strong>vocabulary design</strong>, leveraging an image discretization mechanism with BAE, our results reveal that a vocabulary
+              decomposition helps <u class="highlight">improve performance</u> and <u class="highlight">reduce computational cost</u>. 
+              Specifically, we conclude that spliting each code into two subcode is the most suitable choice;  
+              stronger BAE with larger code dimension allows higher potential of image generation, but also requires larger generation model.
+            </li>
+            <li>
+              For the <strong>sampling strategies</strong>, we thoughly explored the effective combination of the key components during inference, 
+              including the classifier-free guidiance (CFG) scale, introduction of randomness (temperature in the gumbel noise for MLMs and top-k for the AR models), 
+              and the sample iteration for MLMs. We found that <u class="highlight">a lineary increased CFG scale during generation and a large scale of randomness</u> is important for a low level of FID.
+            </li>
+            <li>
+              Combining all key ingredients of the design space explicitly explored, we reach a strong
+              <strong>Elucidated Language model for iMage generation</strong>, termed as <strong>ELM</strong>, and achieve <u class="highlight">state-of-the-art
+              performance on the ImageNet 256×256 benchmark</u>.
+            </li>
+            </ul>
+            </p>
+
+            <div style="text-align: center;">
+            <h5>
+            <p>See more detailed results in our paper!</p>
+            </h5>
+            </div>
+            <!-- <p><i></i></p> -->
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scene Breaking Examples -->
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-12">
+          <h2 class="title is-3">Results</h2>
+          <h3 class="title is-4">Comparison result of our ELM and other Language Models on ImageNet 256×256.</h3>
+          <div class="content has-text-justified">
+
+            <div class="container" style="text-align: center;">
+              <img width="70%" src="./static/src/result1.png"/>
+              <br />
+            </div>
+          </div>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-12">
+          <h3 class="title is-4">Generated samples of ELM-2B with 2-12 BAE</h3>
+          <div class="content has-text-justified">
+
+            <div class="container" style="text-align: center;">
+              <img width="90%" src="./static/src/selected_imgs.png"/>
+              <br />
+            </div>
+          </div>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-12">
+          <h3 class="title is-4">Visualizing the performance improvement along with scaling up the tokenizer and model
+            size.</h3>
+          <div class="content has-text-justified">
+
+            <div class="container" style="text-align: center;">
+              <img width="100%" src="./static/src/scaling.png"/>
+              <br />
+            </div>
+          </div>
+  
+
+  <!-- <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <p>If you find this project useful for your research, please cite the following:</p>
+
+<pre align="left"><code>@InProceedings{hao2024conceptexpress,
+    title={Concept{E}xpress: Harnessing Diffusion Models for Single-image Unsupervised Concept Extraction}, 
+    author={Shaozhe Hao and Kai Han and Zhengyao Lv and Shihao Zhao and Kwan-Yee~K. Wong},
+    booktitle={ECCV},
+    year={2024},
+}
+</code></pre>
+    </div>
+  </section> -->
+
+  <div class="container">
+    <div class="columns is-centered">
+      <p>
+        This page was adapted from <a href="https://omriavrahami.com/break-a-scene/">this</a> source code.
+      </p>
+    </div>
+  </div>
+
+</body>
+
+</html>
