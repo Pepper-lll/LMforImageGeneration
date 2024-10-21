@@ -1,0 +1,16 @@
+name: ELM
+channels:
+  - pytorch
+  - nvidia
+dependencies:
+  - python >= 3.8
+  - pytorch >= 2.1.0
+  - torchvision
+  - pytorch-cuda=12.1
+  - pip:
+    - timm
+    - diffusers
+    - accelerate
+    - einops
+    - scipy
+    - opencv-python
