@@ -1,28 +1,38 @@
 This is the codebase for the paper
 
-### Elucidating the design space of language models for image generation
+## Elucidating the design space of language models for image generation
 [Xuantong Liu](https://github.com/Pepper-lll), [Shaozhe Hao](https://haoosz.github.io/), [Xianbiao Qi*](https://scholar.google.com/citations?user=odjSydQAAAAJ&hl=en), [Tianyang Hu#](https://hu-tianyang.github.io/), [Jun Wang](https://scholar.google.com/citations?user=mX8s9ZgAAAAJ), [Rong Xiao](https://scholar.google.com/citations?user=Zb5wT08AAAAJ&hl=en), [Yuan Yao#](https://yao-lab.github.io/)\
 The Hong Kong University of Science and Technology, The University of Hong Kong, Intellifusion, Huawei Noah's Ark Lab\
 (*: Project leader; #: Corresponding authors)
 
-[[Project Page]](https://Pepper-lll.github.io/LMforImageGeneration/)
+[[Project Page]](https://Pepper-lll.github.io/LMforImageGeneration/) [arXiv](https://arxiv.org/abs/2410.16257)
 ![image](https://github.com/Pepper-lll/LMforImageGeneration/blob/main/first_pic.png)
 
-### Introduction 💡
+# Introduction 💡
 
 We explore the design space of using language models on the image generation task, including the **image tokenizer choice** (Binary Autoencoder or Vector-Quantization Autoencoder), **language modeling method** (AutoRegressive or Masked Language Model), **vocabulary design** based on BAE and sampling strategies and **sampling strategies**. We achieve a strong baseline (1.54 FID on ImageNet 256*256) compared to language-model-based and diffusion-model-based image generation models. We also analyze the **fundamental difference between image and languege sequence generation** and **the learning behavior of language models on image generation**, demonstrating the scaling law and the great potential of AR models across different domains.
 
 We provide 4 BAE tokenizers with code dimension 16, 10, 24 and 32, each trained for 1,000,000 iterations with batch size 256. We also provide the checkpoints for all the generation models we discussed in the paper. All the download links are provided.
 
-### Set up 🔩
+# Set up 🔩
 You can simply install the environment with the file ```environment.yml``` by:
 
 ```
 conda env create -f environment.yml
 conda activate ELM
 ```
+# Download 💡
+You can download the checkpoints for the image tokenizers (BAE) and generation models from [link](https://huggingface.co/xuantonglll/ELM).
 
-### Image Generation 🌟
+### Image Tokenizers (BAEs) 🧩
+| Code Dim  | Bernoulli Sampling | Link ｜ Size |
+| ------------- | ------------- | ----------｜ ----------｜
+| 16  | ✅  | [link](https://huggingface.co/xuantonglll/ELM/resolve/main/bae/bae_16/binaryae_ema.th?download=true) | 332MB |
+| 16  | ❌ | [link](https://huggingface.co/xuantonglll/ELM/resolve/main/bae/bae_16_deter/binaryae_ema.th?download=true) | 332MB |
+| 20  | ✅  | [link](https://huggingface.co/xuantonglll/ELM/resolve/main/bae/bae_20/binaryae_ema.th?download=true) | 332MB |
+| 24  | ✅  | [link](https://huggingface.co/xuantonglll/ELM/resolve/main/bae/bae_24/binaryae_ema.th?download=true)| 332MB |
+
+# Image Generation 🌟
 If you want to generated samples with our pretrained models, run
 ```
 bash inference.sh
@@ -32,7 +42,7 @@ If you want to generated images larger than 256 $\times$ 256
 , activate ```--v_expand``` (for vertical expanding) or ```--h_expand``` (for horizontal expanding) in ```inference.sh```.
 
 
-### Train 🌟
+# Train 🌟
 If you want to train EML-L with vocabulary 2-10 on 1 GPU node with 8 GPUs, just run
 ```
 bash train.sh
