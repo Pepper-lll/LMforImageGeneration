@@ -5,7 +5,7 @@ This is the codebase for the paper
 The Hong Kong University of Science and Technology, The University of Hong Kong, Intellifusion, Huawei Noah's Ark Lab\
 (*: Project leader; #: Corresponding authors)
 
-[[**Project Page**]](https://Pepper-lll.github.io/LMforImageGeneration/) [[**arXiv**]](https://arxiv.org/abs/2410.16257)
+[**[Project Page]**](https://Pepper-lll.github.io/LMforImageGeneration/) [**[arXiv]**](https://arxiv.org/abs/2410.16257) [**[Colab]**](https://colab.research.google.com/drive/1l7FRzS8HSlmSjpVJW7mOfsV2GJWtmGsR?usp=sharing)
 ![image](https://github.com/Pepper-lll/LMforImageGeneration/blob/main/first_pic.png)
 
 # Introduction 💡
@@ -32,6 +32,17 @@ You can download the checkpoints for the image tokenizers (BAE) and generation m
 | 16  | ❌ | [link](https://huggingface.co/xuantonglll/ELM/resolve/main/bae/bae_16_deter/binaryae_ema.th?download=true) | 332MB|
 | 20  | ✅  | [link](https://huggingface.co/xuantonglll/ELM/resolve/main/bae/bae_20/binaryae_ema.th?download=true) | 332MB |
 | 24  | ✅  | [link](https://huggingface.co/xuantonglll/ELM/resolve/main/bae/bae_24/binaryae_ema.th?download=true)| 332MB |
+
+### Generation Models (GPTs) ⚙️
+| Model  | Link | Size |
+| ------------- | -------------| -------------|
+|AR-L |[[1-16]]()  [[2-8]]() [[2-10]](https://huggingface.co/xuantonglll/ELM/resolve/main/gpt/L-2-10.pth?download=true)| 1.25GB~1.77GB|
+|AR-XL | [[1-16]]() [[2-8]]() [[2-10]]()  [[2-12]]() | 2.95GB~3.6GB|
+|AR-XXL | [[1-16]]() [[2-10]]()  [[2-12]]() | 5.49GB~6.25GB|
+|AR-2B | [[2-12]]() | 7.64GB|
+|MLM-L | [[1-16]]() | 1.51GB|
+|MLM-XL | [[1-16]]() | 3.27GB|
+|MLM-XXL | [[1-16]]() | 5.86GB|
 
 # Image Generation 🌟
 If you want to generated samples with our pretrained models, run
