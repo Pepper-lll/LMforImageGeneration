@@ -5,7 +5,7 @@ This is the codebase for the paper
 The Hong Kong University of Science and Technology, The University of Hong Kong, Intellifusion, Huawei Noah's Ark Lab\
 (*: Project leader; #: Corresponding authors)
 
-[[Project Page]](https://Pepper-lll.github.io/LMforImageGeneration/) [arXiv](https://arxiv.org/abs/2410.16257)
+[[Project Page]](https://Pepper-lll.github.io/LMforImageGeneration/) [[arXiv]](https://arxiv.org/abs/2410.16257)
 ![image](https://github.com/Pepper-lll/LMforImageGeneration/blob/main/first_pic.png)
 
 # Introduction 💡
@@ -25,6 +25,7 @@ conda activate ELM
 You can download the checkpoints for the image tokenizers (BAE) and generation models from [link](https://huggingface.co/xuantonglll/ELM).
 
 ### Image Tokenizers (BAEs) 🧩
+
 | Code Dim  | Bernoulli Sampling | Link ｜ Size |
 | ------------- | ------------- | ----------｜ ----------｜
 | 16  | ✅  | [link](https://huggingface.co/xuantonglll/ELM/resolve/main/bae/bae_16/binaryae_ema.th?download=true) | 332MB |
