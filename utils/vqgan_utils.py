@@ -1,6 +1,5 @@
 import copy
 import torch
-import torch_fidelity
 import torch.nn.functional as F
 from tqdm import tqdm
 from .data_utils import get_data_loaders, BigDataset, NoClassDataset, get_datasets
@@ -97,21 +96,6 @@ def load_binaryae_from_checkpoint(H, binaryae, optim, disc_optim, ema_binaryae):
         train_stats = None
     return binaryae, optim, disc_optim, ema_binaryae, train_stats
 
-def calc_FID(H, model):
-    # generate_recons(H, model)
-    real_dataset, _ = get_datasets(H.dataset, H.img_size, custom_dataset_path=H.custom_dataset_path)
-    real_dataset = NoClassDataset(real_dataset)
-    recons = BigDataset(f"logs/{H.log_dir}/FID_recons/images/")
-    fid = torch_fidelity.calculate_metrics(
-        input1=recons,
-        input2=real_dataset,
-        cuda=True,
-        fid=True,
-        verbose=True,
-        input2_cache_name=f"{H.dataset}_cache" if H.dataset != "custom" else None,
-    )["frechet_inception_distance"]
-
-    return fid
 
 
 @torch.no_grad()
