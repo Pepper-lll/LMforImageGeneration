@@ -1,11 +1,19 @@
 This is the codebase for the paper
 
-## Elucidating the design space of language models for image generation
+# Elucidating the design space of language models for image generation
+
+[![Project Page](https://img.shields.io/badge/Webpage-0054a6?logo=Google%20chrome&logoColor=white)](https://Pepper-lll.github.io/LMforImageGeneration/)
+[![arXiv](https://img.shields.io/badge/arXiv-2410.16257%20-b31b1b)](https://arxiv.org/abs/2410.16257)
+[![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-ELM-blue)](https://huggingface.co/xuantonglll/ELM)
+[![Colab Demo](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1l7FRzS8HSlmSjpVJW7mOfsV2GJWtmGsR?usp=sharing)
+![License](https://img.shields.io/github/license/haoosz/ConceptExpress?color=lightgray)
+
 [Xuantong Liu](https://github.com/Pepper-lll), [Shaozhe Hao](https://haoosz.github.io/), [Xianbiao Qi*](https://scholar.google.com/citations?user=odjSydQAAAAJ&hl=en), [Tianyang Hu#](https://hu-tianyang.github.io/), [Jun Wang](https://scholar.google.com/citations?user=mX8s9ZgAAAAJ), [Rong Xiao](https://scholar.google.com/citations?user=Zb5wT08AAAAJ&hl=en), [Yuan Yao#](https://yao-lab.github.io/)\
 The Hong Kong University of Science and Technology, The University of Hong Kong, Intellifusion, Huawei Noah's Ark Lab\
 (*: Project leader; #: Corresponding authors)
 
 [**[Project Page]**](https://Pepper-lll.github.io/LMforImageGeneration/) [**[arXiv]**](https://arxiv.org/abs/2410.16257) [**[Colab]**](https://colab.research.google.com/drive/1l7FRzS8HSlmSjpVJW7mOfsV2GJWtmGsR?usp=sharing)
+
 ![image](https://github.com/Pepper-lll/LMforImageGeneration/blob/main/first_pic.png)
 
 # Introduction 💡
@@ -36,22 +44,22 @@ You can download the checkpoints for the image tokenizers (BAE) and generation m
 ### Generation Models (GPTs) ⚙️
 | Model  | Link | Size |
 | ------------- | -------------| -------------|
-|AR-L |[[1-16]]()  [[2-8]]() [[2-10]](https://huggingface.co/xuantonglll/ELM/resolve/main/gpt/L-2-10.pth?download=true)| 1.25GB~1.77GB|
-|AR-XL | [[1-16]]() [[2-8]]() [[2-10]]()  [[2-12]]() | 2.95GB~3.6GB|
-|AR-XXL | [[1-16]]() [[2-10]]()  [[2-12]]() | 5.49GB~6.25GB|
-|AR-2B | [[2-12]]() | 7.64GB|
-|MLM-L | [[1-16]]() | 1.51GB|
-|MLM-XL | [[1-16]]() | 3.27GB|
-|MLM-XXL | [[1-16]]() | 5.86GB|
+|AR-L |[[1-16]](https://huggingface.co/xuantonglll/ELM/resolve/main/gpt/L-1-16.pth?download=true)  [[2-8]](https://huggingface.co/xuantonglll/ELM/resolve/main/gpt/L-2-8.pth?download=true) [[2-10]](https://huggingface.co/xuantonglll/ELM/resolve/main/gpt/L-2-10.pth?download=true) [[2-12]](https://huggingface.co/xuantonglll/ELM/resolve/main/gpt/L-2-12.pth?download=true)| 1.25GB~1.77GB|
+|AR-XL | [[1-16]](https://huggingface.co/xuantonglll/ELM/resolve/main/gpt/XL-1-16.pth?download=true) [[2-8]](https://huggingface.co/xuantonglll/ELM/resolve/main/gpt/XL-2-8.pth?download=true) [[2-10]](https://huggingface.co/xuantonglll/ELM/resolve/main/gpt/XL-2-10.pth?download=true)  [[2-12]](https://huggingface.co/xuantonglll/ELM/resolve/main/gpt/XL-2-12.pth?download=true) | 2.95GB~3.6GB|
+|AR-XXL | [[1-16]](https://huggingface.co/xuantonglll/ELM/resolve/main/gpt/XXL-1-16.pth?download=true) [[2-10]](https://huggingface.co/xuantonglll/ELM/resolve/main/gpt/XXL-2-10.pth?download=true)  [[2-12]](https://huggingface.co/xuantonglll/ELM/resolve/main/gpt/XXL-2-12.pth?download=true) | 5.49GB~6.25GB|
+|AR-2B | [[2-12]](https://huggingface.co/xuantonglll/ELM/resolve/main/gpt/2B-2-12.pth?download=true) | 7.64GB|
+|MLM-L | [[1-16]](https://huggingface.co/xuantonglll/ELM/resolve/main/gpt/mlmL-1-16.pth?download=true) | 1.51GB|
+|MLM-XL | [[1-16]](https://huggingface.co/xuantonglll/ELM/resolve/main/gpt/mlmXL-1-16.pth?download=true) | 3.27GB|
+|MLM-XXL | [[1-16]](https://huggingface.co/xuantonglll/ELM/resolve/main/gpt/mlmXXL-1-16.pth?download=true) | 5.86GB|
 
 # Image Generation 🌟
-If you want to generated samples with our pretrained models, run
+If you want to generate samples with our pretrained models, run
 ```
 bash inference.sh
 ```
-The default setting is generated samples from 8 classes.
+You need to specify the checkpoint path in ```--ckpt```. The default setting is generated samples from 8 classes [207, 360, 387, 974, 88, 979, 417, 279].
 If you want to generated images larger than 256 $\times$ 256
-, activate ```--v_expand``` (for vertical expanding) or ```--h_expand``` (for horizontal expanding) in ```inference.sh```.
+, activate ```--v_expand``` (for vertical expanding) or ```--h_expand``` (for horizontal expanding) in ```inference.sh```, ```--overlap_width``` sets the length of the preceding sequence each time, ```--expand_time``` sets how many times to expand, ```--gen_num``` specify the number of generated samples.
 
 
 # Train 🌟
@@ -59,6 +67,7 @@ If you want to train EML-L with vocabulary 2-10 on 1 GPU node with 8 GPUs, just 
 ```
 bash train.sh
 ```
-You need to specify the ImageNet dataset path at ```--data-path```.
+You need to specify the ImageNet dataset path at ```--data-path```. You can change the model size through ```--model``` (L, XL, XXL and 2B), modeling method through ```--modeling``` (ar or mlm), number of sub-codes through ```--token-each``` (1, 2, 3, ...), dimension of each code through ```--code-dim```. Remember the **```codebook_size``` should be equal to 
+```token-each``` *  ```code-dim```**. ```--hm-dist``` larger than 1 means the soft label according to Hamming Distance is used, however, we found it is kind of useless, and we have not utilized it or discussed it in our paper. You are free to have a try!
 
 We train L/XL-sized models using 8 A800 GPUs, XXL/2B-sized models using 32 A800 GPUs on 4 nodes.
