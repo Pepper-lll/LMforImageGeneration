@@ -71,3 +71,20 @@ You need to specify the ImageNet dataset path at ```--data-path```. You can chan
 ```token-each``` *  ```code-dim```**. ```--hm-dist``` larger than 1 means the soft label according to Hamming Distance is used, however, we found it is kind of useless, and we have not utilized it or discussed it in our paper. You are free to have a try!
 
 We train L/XL-sized models using 8 A800 GPUs, XXL/2B-sized models using 32 A800 GPUs on 4 nodes.
+
+# Additional Results 🌟
+### FID without cfg
+For each model size, we test the 50k-FID without cfg with the most suitable tokenizer using ```pytorch_fid```.
+|Model|FID|
+|---|---|
+|XL, 2-10|17.95|
+|XL, 2-10|13.70|
+|XXL, 2-12| 11.41|
+
+### Training loss curve
+The training loss for token-prediction-based image generation can not converge  well but still ensures high image generation capability. The rationale behind this is discussed in our paper.
+We show the training loss curve of the model of different sizes with the same tokenizer, where the scaling law is also presented.
+
+![image](https://github.com/Pepper-lll/LMforImageGeneration/blob/main/losses2-12.png)
+
+However, the training loss trend of models with different tokenizers (such as L with 1-16, 2-8, 2-10, ...) is not compared. Because different tokenizers have different vocabulary sizes, the losses are not of the same magnitude and cannot be compared.
