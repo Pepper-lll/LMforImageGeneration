@@ -77,9 +77,9 @@ We train L/XL-sized models using 8 A800 GPUs, XXL/2B-sized models using 32 A800 
 For each model size, we test the 50k-FID without cfg with the most suitable tokenizer using ```pytorch_fid```.
 |Model|FID|
 |---|---|
-|L, 2-10|17.95|
-|XL, 2-10|13.70|
-|XXL, 2-12| 11.41|
+|L, 2-10|15.95|
+|XL, 2-10|12.70|
+|XXL, 2-12| 10.11|
 
 ### Training loss curve
 The training loss for token-prediction-based image generation can not converge  well but still ensures high image generation capability. The rationale behind this is discussed in our paper.
